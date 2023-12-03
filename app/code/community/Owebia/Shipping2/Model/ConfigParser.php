@@ -1013,7 +1013,7 @@ class Owebia_Shipping2_Model_ConfigParser
                         $maxValue = trim($feeData[0]);
 
                         $includingMaxValue = $this->_prepareFormulaTableIncludeMaxValue(
-                            $maxValue{strlen($maxValue) - 1}
+                            $maxValue[strlen($maxValue) - 1]
                         );
 
                         $maxValue = str_replace(array('[', ']'), '', $maxValue);
@@ -1254,7 +1254,7 @@ class Owebia_Shipping2_Model_ConfigParser
         $propertiesCount = count($propertySet);
         foreach ($propertySet as $j => $property) {
             $name = $property['property_name'];
-            if ($name{0} != '"' || $name{strlen($name) - 1} != '"') {
+            if ($name[0] != '"' || $name[strlen($name) - 1] != '"') {
                 $autoCorrectionWarnings['missing_enquote_of_property_name'] =
                     'JSON: missing enquote of property name: %s';
                 $missingEnquoteOfPropertyName[] = self::toString(trim($name, '"'));
